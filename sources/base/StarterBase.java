@@ -21,6 +21,7 @@ class StarterBase {
 		frame.setVisible(true);
 		frame.setSize(core.getPanelWidth(), core.getPanelHeight());
 		frame.addKeyListener(core.getKeyAdapter());
+		frame.getContentPane().add(core.getDrawPanel());
 	}
 
 	public static void main(String[] args) {
