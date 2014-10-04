@@ -1,0 +1,1 @@
+java BaseStarter "$1"
