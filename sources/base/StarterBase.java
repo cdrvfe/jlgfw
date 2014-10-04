@@ -20,6 +20,7 @@ class StarterBase {
 		frame = new JFrame();
 		frame.setVisible(true);
 		frame.setSize(core.getPanelWidth(), core.getPanelHeight());
+		frame.addKeyListener(core.getKeyAdapter());
 	}
 
 	public static void main(String[] args) {
