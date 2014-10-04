@@ -18,10 +18,7 @@ class StarterBase {
 		}
 
 		frame = new JFrame();
-		frame.setVisible(true);
-		frame.setSize(core.getPanelWidth(), core.getPanelHeight());
-		frame.addKeyListener(core.getKeyAdapter());
-		frame.getContentPane().add(core.getDrawPanel());
+		core.initFrame(frame);
 	}
 
 	public static void main(String[] args) {
