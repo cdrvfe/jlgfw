@@ -1,1 +1,1 @@
-cd app/ ; java StarterBase DummyCore ; cd ../
+cd app/ ; java Starter DummyCore ; cd ../

@@ -23,4 +23,4 @@ rm -rf build_buf/
 #使用コア読み出し、Starter編集
 cd ../
 core=`cat sources/build_config | grep 'core=' | cut -d'=' -f2`
-echo 'cd app/ ; java StarterBase '"$core"' ; cd ../'>run.sh
+echo 'cd app/ ; java Starter '"$core"' ; cd ../'>run.sh

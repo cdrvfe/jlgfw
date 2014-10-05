@@ -3,11 +3,11 @@ import java.lang.reflect.Method;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-class StarterBase implements Runnable{
+class Starter implements Runnable{
     private JFrame frame;
 	private GameCore core;
 
-	private StarterBase(String core_name) {
+	private Starter(String core_name) {
 		try {
 			Class coreclass = Class.forName(core_name);
             Object coreinstance = coreclass.newInstance();
@@ -59,7 +59,7 @@ class StarterBase implements Runnable{
 	}
 
 	public static void main(String[] args) {
-		StarterBase starter = new StarterBase(args[0]);
+		Starter starter = new Starter(args[0]);
 		starter.startLoop();
 	}
 }
