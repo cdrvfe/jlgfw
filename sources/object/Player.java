@@ -6,9 +6,6 @@ class Player extends GameObject{
 	private int WIDTH = 64;
 	private double SPEED = 8;
 
-	public void activate(HashMap<String, Object> params) {
-		activate((int)params.get("x"), (int)params.get("y"));
-	}
 	public void activate(int x, int y) {
 		super.activate(null);
 	

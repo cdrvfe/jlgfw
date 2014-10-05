@@ -6,9 +6,12 @@ class ObjectPool {
 	private static HashMap<String, ArrayList<GameObject>> instance_lists = new HashMap<String, ArrayList<GameObject>>();
 	private static HashMap<Class, ArrayList<GameObject>> active_lists = new HashMap<Class, ArrayList<GameObject>>();
 
-	public static GameObject getInstance(String class_name) {
+	public static GameObject prepareInstance(String class_name) {
 		ArrayList<GameObject> instances = instance_lists.get(class_name);
-		if (instances == null) addClass(class_name);
+		if (instances == null) {
+			addClass(class_name);
+			instances = instance_lists.get(class_name);
+		}
 
 		for (int i = 0; i < instances.size(); i++) {
 			GameObject instance = instances.get(i);
@@ -51,7 +54,7 @@ class ObjectPool {
 	}
 
 	public static void removeFromActiveList(Class object_class, GameObject object) {
-		getActiveList(object_class).add(object);
+		getActiveList(object_class).remove(object);
 	}
 
 	public static ArrayList<GameObject> getActiveList(Class object_class) {
@@ -61,5 +64,8 @@ class ObjectPool {
 			active_lists.put(object_class, actives);
 		}
 		return actives;	
+	}
+	public static ArrayList<GameObject> getActiveList(String class_name) {
+		return getActiveList(classes.get(class_name));
 	}
 }

@@ -2,18 +2,13 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.util.HashMap;
 
-class Enemy extends GameObject{
+class Enemy extends GamePoolObject{
 	private int WIDTH = 64;
 	private double SPEED = 8;
 
-	public void activate(HashMap<String, Object> params) {
-		activate((int)params.get("x"), (int)params.get("y"));
-	}
-	public void activate(int x, int y) {
-		super.activate(null);
-	
-		this.x = x - WIDTH / 2;
-		this.y = y - WIDTH / 2;
+	public void processActivate(HashMap<String, Object> params) {
+		x = (double)(params.get("x"));
+		y = (double)(params.get("y"));
 	}
 
 	public void move() {
