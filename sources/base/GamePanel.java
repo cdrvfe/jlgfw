@@ -9,7 +9,7 @@ class GamePanel extends JPanel {
 		this.core = core;
 	}
 
-	public void paintComponent() {
-		core.draw((Graphics2D)getGraphics());
+	public void paintComponent(Graphics g) {
+		core.draw((Graphics2D)g);
 	}
 }

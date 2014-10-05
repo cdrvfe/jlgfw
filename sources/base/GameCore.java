@@ -10,6 +10,9 @@ abstract class GameCore implements Drawable{
 	protected GameKeyAdapter kadapter;
 	protected JPanel draw_panel;
 
+	protected void init() {
+	}
+
 	public void initFrame(JFrame frame) {
 		frame.setSize(PANEL_WIDTH, PANEL_HEIGHT);
 		frame.setVisible(true);
@@ -20,6 +23,8 @@ abstract class GameCore implements Drawable{
 		draw_panel = new GamePanel(this);
 		draw_panel.setSize(PANEL_WIDTH, PANEL_HEIGHT);
 		frame.getContentPane().add(draw_panel);
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	public int getPanelWidth() {

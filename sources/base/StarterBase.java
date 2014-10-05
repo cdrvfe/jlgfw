@@ -18,6 +18,8 @@ class StarterBase implements Runnable{
 			System.exit(0);
 		}
 
+		core.init();
+
 		frame = new JFrame();
 		core.initFrame(frame);
 	}
