@@ -4,6 +4,7 @@ import java.util.ArrayList;
 class ObjectPool {
 	private static HashMap<String, Class> classes = new HashMap<String, Class>();
 	private static HashMap<String, ArrayList<GameObject>> instance_lists = new HashMap<String, ArrayList<GameObject>>();
+	private static HashMap<Class, ArrayList<GameObject>> active_lists = new HashMap<Class, ArrayList<GameObject>>();
 
 	public static GameObject getInstance(String class_name) {
 		ArrayList<GameObject> instances = instance_lists.get(class_name);
@@ -43,5 +44,22 @@ class ObjectPool {
 
 		instance_lists.get(class_name).add(instance);
 		return instance;
+	}
+
+	public static void addToActiveList(Class object_class, GameObject object) {
+		getActiveList(object_class).add(object);
+	}
+
+	public static void removeFromActiveList(Class object_class, GameObject object) {
+		getActiveList(object_class).add(object);
+	}
+
+	public static ArrayList<GameObject> getActiveList(Class object_class) {
+		ArrayList<GameObject> actives = active_lists.get(object_class);
+		if (actives == null) {
+			actives = new ArrayList<GameObject>();
+			active_lists.put(object_class, actives);
+		}
+		return actives;	
 	}
 }

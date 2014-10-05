@@ -10,7 +10,7 @@ class Enemy extends GameObject{
 		activate((int)params.get("x"), (int)params.get("y"));
 	}
 	public void activate(int x, int y) {
-		is_active = true;
+		super.activate(null);
 	
 		this.x = x - WIDTH / 2;
 		this.y = y - WIDTH / 2;
