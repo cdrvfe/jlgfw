@@ -1,8 +1,9 @@
 import java.awt.event.KeyAdapter;
+import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 
-class GameCore {
+abstract class GameCore implements Drawable{
 	public static final int PANEL_WIDTH  = 800;
 	public static final int PANEL_HEIGHT = 600;;
 
@@ -11,9 +12,14 @@ class GameCore {
 
 	public void initFrame(JFrame frame) {
 		frame.setSize(PANEL_WIDTH, PANEL_HEIGHT);
-		frame.addKeyListener(kadapter);
-		frame.getContentPane().add(draw_panel);
 		frame.setVisible(true);
+
+		kadapter = new GameKeyAdapter();
+		frame.addKeyListener(kadapter);
+
+		draw_panel = new GamePanel(this);
+		draw_panel.setSize(PANEL_WIDTH, PANEL_HEIGHT);
+		frame.getContentPane().add(draw_panel);
 	}
 
 	public int getPanelWidth() {
@@ -24,11 +30,5 @@ class GameCore {
 		return PANEL_HEIGHT;
 	}
 
-	public KeyAdapter getKeyAdapter() {
-		return kadapter;
-	}
-
-	public JPanel getDrawPanel() {
-		return draw_panel;
-	}
+	public abstract void update();
 }

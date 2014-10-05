@@ -1,18 +1,11 @@
-import javax.swing.JPanel;
+import java.awt.Graphics2D;
 
 class DummyCore extends GameCore{
-
-	public DummyCore() {
-		kadapter = new GameKeyAdapter();
-		draw_panel = new JPanel();
-		draw_panel.setSize(PANEL_WIDTH, PANEL_HEIGHT);
+	public void update() {
+	
 	}
 
-	public int getPanelWidth() {
-		return PANEL_WIDTH;	
-	}
-
-	public int getPanelHeight() {
-		return PANEL_HEIGHT;
+	public void draw(Graphics2D g) {
+		
 	}
 }
