@@ -10,7 +10,6 @@ class DummyCore extends GameCore{
 		player.activate(PANEL_WIDTH/2, PANEL_HEIGHT/2);
 	}
 
-
 	public void update() {
 		player.move(kadapter);
 	}
