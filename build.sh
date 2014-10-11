@@ -9,10 +9,16 @@ mkdir build_buf/
 cd "$home_dir"/sources/
 for dir in `cat compile_dirs`
 do
-	#順番にバッファディレクトリに移動
+	#順番にバッファディレクトリにコピー
 	for file in `cat "$dir"/compile_files`
 	do
 		cp "$dir"/"$file" build_buf/
+		# -a オプションでコピーの度にコンパイル
+		if test "$1" = "-a" ; then
+			cd build_buf
+			javac "$file"
+			cd ../
+		fi
 	done
 done
 
