@@ -1,1 +1,1 @@
-java BaseStarter "$1"
+cd app/ ; java Starter  ; cd ../
